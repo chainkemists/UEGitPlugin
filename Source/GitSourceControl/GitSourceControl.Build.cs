@@ -9,6 +9,10 @@ public class GitSourceControl : ModuleRules
 {
 	public GitSourceControl(ReadOnlyTargetRules Target) : base(Target)
 	{
+//++CK
+        PCHUsage = ModuleRules.PCHUsageMode.UseExplicitOrSharedPCHs;
+//--CK
+
 		PrivateDependencyModuleNames.AddRange(
 			new string[] {
 				"Core",
