@@ -885,6 +885,17 @@ int32 FGitSourceControlProvider::GetStateBranchIndex(const FString& StateBranchN
 	return StatusBranchNames.IndexOfByKey(StateBranchName);
 }
 
+bool FGitSourceControlProvider::GetStateBranchAtIndex(int32 BranchIndex, FString& OutBranchName) const
+{
+	auto StatusBranchNames = GetStatusBranchNames();
+	if (StatusBranchNames.IsValidIndex(BranchIndex))
+	{
+		OutBranchName = StatusBranchNames[BranchIndex];
+		return true;
+	}
+	return false;
+}
+
 TArray<FString> FGitSourceControlProvider::GetStatusBranchNames() const
 {
 	TArray<FString> StatusBranches;
